@@ -1,19 +1,53 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="form-container">
+    <HeroForm :formData.sync="leftFormData" @sync="syncLeftForm" />
+    <HeroForm :formData.sync="rightFormData" @sync="syncRightForm" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeroForm from "./components/HeroForm.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { HeroForm },
+  data() {
+    return {
+      leftFormData: {
+        name: "",
+        age: "",
+        height: null,
+        gender: "",
+        isMasterCharacter: false,
+        race: "",
+        class: "",
+        talents: [],
+        hairColor: "#000000",
+        biography: "",
+      },
+      rightFormData: {
+        name: "",
+        age: "",
+        height: null,
+        gender: "",
+        isMasterCharacter: false,
+        race: "",
+        class: "",
+        talents: [],
+        hairColor: "#000000",
+        biography: "",
+      },
+    };
+  },
+  methods: {
+    syncLeftForm(data) {
+      this.leftFormData = { ...data };
+    },
+    syncRightForm(data) {
+      this.rightFormData = { ...data };
+    },
+  },
+};
 </script>
 
 <style>
@@ -24,5 +58,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.form-container {
+  margin-top: 150px;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
