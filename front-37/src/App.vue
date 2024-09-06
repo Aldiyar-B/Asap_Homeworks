@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
-    <HeroForm v-model="leftFormData" @sync="syncLeftForm" />
-    <HeroForm v-model="rightFormData" @sync="syncRightForm" />
+    <HeroForm :formData="leftFormData" @sync="syncLeftForm" />
+    <HeroForm :formData="rightFormData" @sync="syncRightForm" />
   </div>
 </template>
 
@@ -41,10 +41,14 @@ export default {
   },
   methods: {
     syncLeftForm(data) {
-      this.leftFormData = { ...data };
+      console.log("Данные из левой формы:", data);
+      this.rightFormData = { ...data };
+      console.log("Данные теперь из правой формы", this.rightFormData);
     },
     syncRightForm(data) {
-      this.rightFormData = { ...data };
+      console.log("Данные из правой формы:", data);
+      this.leftFormData = { ...data };
+      console.log("Данные теперь из левой формы", this.leftFormData);
     },
   },
 };

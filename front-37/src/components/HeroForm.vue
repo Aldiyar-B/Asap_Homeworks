@@ -177,13 +177,16 @@ export default {
   watch: {
     formData: {
       handler(newVal) {
+        console.log("Получено через v-model в HeroForm:", newVal); // Вывод данных в консоль
         this.localFormData = { ...newVal };
+        console.log("this.localFormData", this.localFormData); // Вывод данных в консоль
       },
       deep: true,
     },
   },
   methods: {
     syncForm() {
+      console.log(this.localFormData);
       this.$emit("sync", this.localFormData);
     },
   },
