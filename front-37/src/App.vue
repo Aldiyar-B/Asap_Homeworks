@@ -84,7 +84,7 @@ export default {
   margin-top: 60px;
 }
 .form-container {
-  margin-top: 150px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-around;
 }

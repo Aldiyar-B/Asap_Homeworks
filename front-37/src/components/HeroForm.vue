@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="hero-form">
     <TextInput id="name" label="Имя" v-model="localFormData.name" />
     <DateInput id="age" label="Возраст" v-model="localFormData.age" />
     <NumberInput id="height" label="Рост" v-model="localFormData.height" />
@@ -193,6 +193,60 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 /* Ваши стили CSS здесь */
+
+.hero-form {
+  margin: 20px auto; /* Центрирование формы по горизонтали */
+  padding: 20px;
+  border: 1px solid #ccc; /* Легкая рамка */
+  border-radius: 8px; /* Закругленные углы */
+  background-color: #f9f9f9; /* Светлый фон */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень вокруг формы */
+}
+
+.hero-form h2 {
+  text-align: center; /* Заголовок по центру */
+  color: #333;
+  margin-bottom: 20px; /* Отступ снизу */
+}
+
+.hero-form label {
+  /* display: block; Каждый тег label занимает всю ширину */
+  margin: 10px 0 5px; /* Отступы для лучшего восприятия */
+  padding: 5px;
+  color: #555;
+}
+
+.hero-form input[type="text"],
+.hero-form select,
+.hero-form textarea {
+  width: 100%; /* Полная ширина */
+  padding: 10px; /* Внутренние отступы */
+  border: 1px solid #ccc; /* Рамка */
+  border-radius: 4px; /* Закругление углов */
+  box-sizing: border-box; /* Учет внутренних отступов в ширине */
+  margin-bottom: 15px; /* Отступы между полями */
+  font-size: 16px; /* Размер шрифта */
+}
+
+.hero-form button {
+  background-color: #007bff; /* Синий цвет кнопок */
+  color: white; /* Цвет текста */
+  border: none; /* Без рамки */
+  border-radius: 4px; /* Закругленные углы */
+  padding: 10px 15px; /* Внутренние отступы */
+  font-size: 16px; /* Размер шрифта */
+  cursor: pointer; /* Стрелка курсора при наведении */
+  transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.hero-form button:disabled {
+  background-color: #ccc; /* Серый цвет для заблокированных кнопок */
+  cursor: not-allowed; /* Курсор недоступен при блокировке */
+}
+
+.hero-form button:hover:not(:disabled) {
+  background-color: #0056b3; /* Темный синий при наведении */
+}
 </style>
