@@ -1,7 +1,7 @@
 <template>
   <div class="form-container">
-    <HeroForm :formData.sync="leftFormData" @sync="syncLeftForm" />
-    <HeroForm :formData.sync="rightFormData" @sync="syncRightForm" />
+    <HeroForm v-model="leftFormData" @sync="syncLeftForm" />
+    <HeroForm v-model="rightFormData" @sync="syncRightForm" />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
         age: "",
         height: null,
         gender: "",
-        isMasterCharacter: false,
+        // isMasterCharacter: false,
         race: "",
         class: "",
         talents: [],
@@ -30,7 +30,7 @@ export default {
         age: "",
         height: null,
         gender: "",
-        isMasterCharacter: false,
+        // isMasterCharacter: false,
         race: "",
         class: "",
         talents: [],

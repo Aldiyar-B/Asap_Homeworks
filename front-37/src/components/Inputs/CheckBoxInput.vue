@@ -4,7 +4,7 @@
       type="checkbox"
       :id="id"
       :checked="checked"
-      @change="$emit('change', $event)"
+      @change="$emit('input', $event.target.checked)"
     />
     <label :for="id">{{ label }}</label>
   </div>

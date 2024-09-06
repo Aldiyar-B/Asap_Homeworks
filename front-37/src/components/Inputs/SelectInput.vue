@@ -4,7 +4,7 @@
     <select
       :id="id"
       :value="value"
-      @change="$emit('update:value', $event.target.value)"
+      @change="$emit('input', $event.target.value)"
     >
       <option
         v-for="option in options"

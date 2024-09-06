@@ -8,7 +8,7 @@
         :name="id"
         :value="option.value"
         :checked="option.value === value"
-        @change="$emit('update:value', option.value)"
+        @change="$emit('input', option.value)"
       />
       <label :for="option.value">{{ option.text }}</label>
     </div>

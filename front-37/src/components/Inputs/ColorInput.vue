@@ -5,7 +5,7 @@
       type="color"
       :id="id"
       :value="value"
-      @input="$emit('update:value', $event.target.value)"
+      @input="$emit('input', $event.target.value)"
     />
   </div>
 </template>
