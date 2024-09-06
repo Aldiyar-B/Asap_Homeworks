@@ -11,7 +11,7 @@
     />
     <CheckBoxInput
       id="isMasterCharacter"
-      label="Обладает волей?"
+      label="Обладает волей???"
       v-model="localFormData.isMasterCharacter"
     />
     <SelectInput
@@ -28,16 +28,15 @@
     />
     <div>
       <label>Таланты:</label>
-
       <CheckBoxInput
         v-for="talent in talentsList"
         :key="talent.value"
         :id="talent.value"
         :label="talent.text"
         v-model="localFormData.talents"
+        :talent="talent.value"
       />
     </div>
-
     <ColorInput
       id="hairColor"
       label="Цвет волос"
@@ -49,7 +48,7 @@
       v-model="localFormData.biography"
     />
 
-    <button @click="syncForm">Синхронизировать</button>
+    <button @click="syncForm" :disabled="isEqual">Синхронизировать</button>
   </div>
 </template>
 
@@ -66,7 +65,7 @@ import TextInput from "./Inputs/TextInput.vue";
 export default {
   props: {
     formData: Object,
-    disableSync: Boolean,
+    isEqual: Boolean,
   },
   components: {
     TextInput,

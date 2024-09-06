@@ -1,7 +1,15 @@
 <template>
   <div class="form-container">
-    <HeroForm :formData="leftFormData" @sync="syncLeftForm" />
-    <HeroForm :formData="rightFormData" @sync="syncRightForm" />
+    <HeroForm
+      :formData="leftFormData"
+      @sync="syncLeftForm"
+      :isEqual="isEqual"
+    />
+    <HeroForm
+      :formData="rightFormData"
+      @sync="syncRightForm"
+      :isEqual="isEqual"
+    />
   </div>
 </template>
 
@@ -18,7 +26,7 @@ export default {
         age: "",
         height: null,
         gender: "",
-        // isMasterCharacter: false,
+        isMasterCharacter: [],
         race: "",
         class: "",
         talents: [],
@@ -30,7 +38,7 @@ export default {
         age: "",
         height: null,
         gender: "",
-        // isMasterCharacter: false,
+        isMasterCharacter: [],
         race: "",
         class: "",
         talents: [],
@@ -38,6 +46,18 @@ export default {
         biography: "",
       },
     };
+  },
+  computed: {
+    isEqual() {
+      return (
+        JSON.stringify(this.leftFormData) === JSON.stringify(this.rightFormData)
+      );
+
+      // return console.log(
+      //   "идентичны :  ",
+      //   JSON.stringify(this.leftFormData) == JSON.stringify(this.rightFormData)
+      // );
+    },
   },
   methods: {
     syncLeftForm(data) {

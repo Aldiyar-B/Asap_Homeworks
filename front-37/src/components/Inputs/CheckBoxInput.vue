@@ -10,11 +10,10 @@ export default {
   props: {
     id: String,
     label: String,
-    value: Array, // Ожидаем массив выбранных значений (talents)
-    talent: String, // Это значение таланта (например, "swordsmanship")
+    value: Array,
+    talent: String,
   },
   computed: {
-    // Определяем, отмечен ли чекбокс
     isChecked() {
       return this.value.includes(this.talent);
     },
@@ -22,15 +21,16 @@ export default {
   methods: {
     toggle() {
       let newValue = [...this.value];
-
-      // Если талант уже есть в списке, удаляем его, иначе добавляем
+      console.log("newValue :", newValue);
+      console.log("this.talent :", this.talent);
       if (newValue.includes(this.talent)) {
+        // Если талант уже есть в списке (пользователь снимает галочку), удаляем его
         newValue = newValue.filter((item) => item !== this.talent);
       } else {
+        // Если таланта нет в списке (пользователь ставит галочку), добавляем его
         newValue.push(this.talent);
       }
 
-      // Эмитируем обновленный список талантов
       this.$emit("input", newValue);
     },
   },
