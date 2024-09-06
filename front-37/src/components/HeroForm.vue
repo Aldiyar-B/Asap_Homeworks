@@ -48,7 +48,8 @@
       v-model="localFormData.biography"
     />
 
-    <button @click="syncForm" :disabled="isEqual">Синхронизировать</button>
+    <!-- <button @click="syncForm" :disabled="isEqual">Синхронизировать</button> -->
+    <button @click="syncForm">Синхронизировать</button>
   </div>
 </template>
 
