@@ -1,20 +1,22 @@
 import Vue from "vue";
 import Router from "vue-router";
-import PostDetail from "@/components/PostDetail.vue";
-import PostList from "@/components/PostList.vue";
+// import PostDetail from "@/components/PostDetail.vue";
+// import PostList from "@/components/ItemList.vue";
+import ItemList from "@/components/ItemList.vue";
+import ItemDetail from "@/components/ItemDetail.vue";
 
 Vue.use(Router);
 
 export default new Router({
   mode: "history",
   routes: [
-    { path: "/posts", name: "PostList", component: PostList },
+    { path: "/items", name: "ItemList", component: ItemList },
     {
-      path: "/post/:id",
-      name: "PostDetail",
-      component: PostDetail,
+      path: "/products/:id",
+      name: "ItemDetail",
+      component: ItemDetail,
       props: true,
     }, // props: true для передачи id в виде пропса
-    { path: "*", redirect: "/posts" },
+    { path: "*", redirect: "/items" },
   ],
 });
