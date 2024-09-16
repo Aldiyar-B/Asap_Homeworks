@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     { path: "/items", name: "ItemList", component: ItemList },
     {
-      path: "/products/:id",
+      path: "/item/:id",
       name: "ItemDetail",
       component: ItemDetail,
       props: true,

@@ -56,6 +56,7 @@ ul {
 }
 li {
   margin: 10px 0;
+  font-size: 20px;
 }
 a {
   color: #42b983;

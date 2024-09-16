@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav><router-link to="/items">Товары </router-link></nav>
+    <nav><router-link to="/items">Вернуться к товарам </router-link></nav>
 
     <div class="itemContainer" v-if="item">
       <h3>{{ item.title }}</h3>
