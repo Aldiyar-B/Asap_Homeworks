@@ -4,7 +4,7 @@ import PostDetail from "@/components/PostDetail.vue";
 import PostList from "@/components/PostList.vue";
 import LoginPage from "@/views/LoginPage.vue";
 import RegisterPage from "@/views/RegisterPage.vue";
-
+import PostForm from "@/components/PostForm.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -16,6 +16,17 @@ export default new Router({
       name: "PostDetail",
       component: PostDetail,
       props: true, // Пропсы будут переданы как параметры
+    },
+    {
+      path: "/post/edit/:id",
+      name: "EditForm",
+      component: PostForm,
+      props: true,
+    },
+    {
+      path: "/post/create",
+      name: "CreateForm",
+      component: PostForm,
     },
     { path: "*", redirect: "/posts" },
     {
