@@ -1,7 +1,6 @@
 <template>
   <div>
-    <nav><router-link to="/posts">Посты </router-link></nav>
-
+    <router-link to="/posts">Назад </router-link>
     <div class="postDetail" v-if="post">
       <h3>{{ post.title }}</h3>
       <p>{{ post.description }}</p>

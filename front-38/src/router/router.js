@@ -4,7 +4,8 @@ import PostDetail from "@/components/PostDetail.vue";
 import PostList from "@/components/PostList.vue";
 import LoginPage from "@/views/LoginPage.vue";
 import RegisterPage from "@/views/RegisterPage.vue";
-import PostForm from "@/components/PostForm.vue";
+import EditForm from "@/components/EditForm.vue";
+import CreateForm from "@/components/CreateForm.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -20,13 +21,13 @@ export default new Router({
     {
       path: "/post/edit/:id",
       name: "EditForm",
-      component: PostForm,
+      component: EditForm,
       props: true,
     },
     {
       path: "/post/create",
       name: "CreateForm",
-      component: PostForm,
+      component: CreateForm,
     },
     { path: "*", redirect: "/posts" },
     {

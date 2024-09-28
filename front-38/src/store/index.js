@@ -104,6 +104,66 @@ export default new Vuex.Store({
       localStorage.removeItem("token");
       delete axios.defaults.headers.common["Authorization"];
     },
+    // Get Post
+    async getPosts(_, postId) {
+      try {
+        const response = await axios.get(
+          `http://vseverske.ru/blog/api/post/${postId}`
+        );
+        return response.data; // Предполагаем, что данные поста возвращаются в формате response.data
+      } catch (error) {
+        console.error("Ошибка при загрузке поста:", error);
+        throw new Error("Не удалось загрузить пост.");
+      }
+    },
+    // Get Post
+    async getPost(_, postId) {
+      try {
+        const response = await axios.get(
+          `http://vseverske.ru/blog/api/post/${postId}`
+        );
+        return response.data; // Предполагаем, что данные поста возвращаются в формате response.data
+      } catch (error) {
+        console.error("Ошибка при загрузке поста:", error);
+        throw new Error("Не удалось загрузить пост.");
+      }
+    },
+    // Edit post
+    async editPost(_, postData) {
+      try {
+        // Отправляем PUT запрос на сервер с обновленными данными поста
+        await axios.put("http://vseverske.ru/blog/api/post", postData);
+        console.log(`Пост с id ${postData.id} был успешно обновлен.`);
+      } catch (error) {
+        console.error("Ошибка при редактировании поста:", error);
+      }
+    },
+    // Delete post
+    async deletePost(_, postId) {
+      try {
+        await axios.delete(`http://vseverske.ru/blog/api/post/${postId}`);
+        console.log(`Пост с id ${postId} был  удален.`);
+      } catch (error) {
+        console.error("Ошибка при удалении поста: ", error);
+      }
+    },
+    // Create post
+    async createPost(_, postData) {
+      try {
+        const response = await axios.post(
+          `http://vseverske.ru/blog/api/post`,
+          postData
+        );
+        console.log("Пост был создан", response.data);
+        return response.data;
+      } catch (error) {
+        console.error(
+          "Ошибка при создании поста: ",
+          error.response ? error.response.data : error.message
+        );
+        throw error;
+      }
+    },
   },
   getters: {
     isAuthenticated(state) {
