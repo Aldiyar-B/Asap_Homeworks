@@ -43,7 +43,6 @@ export default {
     ...mapActions(["createPost"]),
     async submitPost() {
       try {
-        console.log("Текущий токен:", localStorage.getItem("token")); // Логируем токен
         console.log("Отправляем данные поста:", this.post);
         await this.createPost(this.post);
         this.$router.push("/posts");

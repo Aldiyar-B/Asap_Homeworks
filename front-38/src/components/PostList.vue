@@ -11,26 +11,41 @@
         <router-link :to="{ name: 'PostDetail', params: { id: post.id } }">
           {{ post.title }}
         </router-link>
-        <router-link
-          v-if="isAuthenticated"
-          :to="{ name: 'EditForm', params: { id: post.id } }"
-        >
-          <button>Редактировать</button></router-link
-        >
+        <div class="post__buttons">
+          <router-link
+            v-if="isAuthenticated"
+            :to="{ name: 'EditForm', params: { id: post.id } }"
+          >
+            <button>Редактировать</button></router-link
+          >
+          <button v-if="isAuthenticated" @click="showDeleteForm = post.id">
+            Удалить пост
+          </button>
+        </div>
       </li>
     </ul>
     <p v-else>Загрузка...</p>
+    <!-- Компонент удаления поста -->
+    <DeleteForm
+      v-if="showDeleteForm"
+      :post="getPostById(showDeleteForm)"
+      @close="showDeleteForm = null"
+      @deleted="fetchPosts"
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
+import DeleteForm from "./DeleteForm.vue";
 export default {
   name: "PostList",
+  components: { DeleteForm },
   data() {
     return {
       posts: [],
+      showDeleteForm: null,
     };
   },
   created() {
@@ -50,6 +65,9 @@ export default {
       } catch (error) {
         console.error("Ошибка при загрузке постов:", error);
       }
+    },
+    getPostById(id) {
+      return this.posts.find((post) => post.id === id); // Получаем пост по ID
     },
   },
 };
@@ -75,6 +93,11 @@ export default {
   padding: 16px;
   margin: 16px;
   transition: transform 0.8s;
+}
+.post__buttons {
+  display: flex;
+
+  gap: 15px;
 }
 h1 {
   margin: 40px 0 0;
