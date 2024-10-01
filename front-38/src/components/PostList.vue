@@ -2,7 +2,8 @@
   <div class="postList">
     <div class="top-part">
       <h1>Список названий постов</h1>
-      <router-link v-if="isAuthenticated" to="/posts/create">
+
+      <router-link v-if="isAuthenticated" :to="{ name: 'CreateForm' }">
         <button>Создать пост</button>
       </router-link>
     </div>
