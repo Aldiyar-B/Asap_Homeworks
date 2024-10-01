@@ -148,20 +148,33 @@ export default new Vuex.Store({
       }
     },
     // Create post
+    // Create post
     async createPost(_, postData) {
       try {
+        console.log("Отправляем данные поста на сервер:", postData);
+
+        // Отправка POST запроса с использованием axios
         const response = await axios.post(
           `http://vseverske.ru/blog/api/post`,
-          postData
+          postData,
+          {
+            headers: {
+              "Content-Type": "application/json", // Указываем, что данные в формате JSON
+            },
+          }
         );
-        console.log("Пост был создан", response.data);
-        return response.data;
+
+        // Проверяем, что данные вернулись
+        if (response.status === 201) {
+          console.log("Пост был создан", response.data);
+          return response.data; // Возвращаем данные нового поста
+        }
       } catch (error) {
         console.error(
-          "Ошибка при создании поста: ",
+          "Ошибка при создании поста:",
           error.response ? error.response.data : error.message
         );
-        throw error;
+        throw error; // Пробрасываем ошибку дальше
       }
     },
   },

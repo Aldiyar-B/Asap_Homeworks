@@ -25,7 +25,7 @@ export default new Router({
       props: true,
     },
     {
-      path: "/post/create",
+      path: "/posts/create",
       name: "CreateForm",
       component: CreateForm,
     },

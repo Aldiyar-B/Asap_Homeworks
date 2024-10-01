@@ -43,10 +43,18 @@ export default {
     ...mapActions(["createPost"]),
     async submitPost() {
       try {
-        console.log("Отправляем данные поста:", this.post);
-        await this.createPost(this.post);
+        // Убедитесь, что данные поста корректны
+        const postData = {
+          title: this.post.title,
+          description: this.post.description,
+        };
+
+        console.log("Отправляем данные поста:", postData);
+        const response = await this.createPost(postData); // Передаем постData вместо this.post
+        console.log("Пост успешно создан:", response);
         this.$router.push("/posts");
       } catch (error) {
+        console.error("Ошибка при создании поста:", error);
         this.error = error.response
           ? error.response.data.message
           : "Ошибка при создании поста.";

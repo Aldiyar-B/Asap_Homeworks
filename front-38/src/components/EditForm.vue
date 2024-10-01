@@ -57,7 +57,7 @@ export default {
     try {
       // Получаем пост по id
       const post = await this.getPost(this.id);
-      this.post = post; // Загружаем данные поста в форму
+      this.post = post.data; // Загружаем данные поста в форму
     } catch (error) {
       this.error = "Ошибка при загрузке поста.";
     }

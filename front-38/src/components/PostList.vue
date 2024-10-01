@@ -2,7 +2,7 @@
   <div class="postList">
     <div class="top-part">
       <h1>Список названий постов</h1>
-      <router-link v-if="isAuthenticated" to="/post/create">
+      <router-link v-if="isAuthenticated" to="/posts/create">
         <button>Создать пост</button>
       </router-link>
     </div>
