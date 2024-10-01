@@ -1,5 +1,6 @@
 <template>
   <div class="post-form">
+    <router-link to="*">Назад</router-link>
     <h2>Создание поста</h2>
     <form @submit.prevent="submitPost">
       <div>
