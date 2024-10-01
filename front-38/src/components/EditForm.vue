@@ -65,12 +65,28 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .post-form {
   max-width: 600px;
   margin: 50px auto;
 }
 button {
   margin-top: 10px;
+}
+label {
+  display: block; /* Ставим лейблы в блоки */
+  margin: 10px 0 5px; /* Отступы для лейблов */
+  font-weight: bold; /* Жирный шрифт для лейблов */
+}
+
+input[type="text"],
+textarea {
+  width: 100%; /* Полная ширина */
+  padding: 10px; /* Внутренние отступы */
+  margin-bottom: 15px; /* Отступы снизу */
+  border: 1px solid #ccc; /* Светлая граница */
+  border-radius: 4px; /* Закругленные углы */
+  font-size: 16px; /* Размер шрифта */
+  box-sizing: border-box; /* Учитываем отступы и границы в ширину */
 }
 </style>

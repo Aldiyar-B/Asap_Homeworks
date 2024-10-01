@@ -43,11 +43,17 @@ export default {
 <style scoped>
 .delete-form {
   max-width: 400px;
-  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  background-color: whitesmoke;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 button {
   margin-top: 10px;
 }
 </style>
-
-а можно без emit? Если store использовать то что?
